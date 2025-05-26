@@ -14,7 +14,7 @@ Through rigorous data preprocessing, reward design, and tailored training strate
 Unified training across diverse tasks enables Reasoning-Table to emerge as a robust table reasoning large language model, surpassing larger proprietary models like Claude-3.7 by 4.0\% on benchmark evaluations. 
 Further experiments demonstrate that Reasoning-Table enhances the model's generalization capabilities.
 
-![DataPipeline](assets/main.pdf)
+![DataPipeline](assets/main.png)
 
 
 ## 🔥 News
