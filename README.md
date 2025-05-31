@@ -1,11 +1,11 @@
 # Reasoning-Table: Exploring Reinforcement Learning for Table Reasoning
 
-<p align="center">
+<!-- <p align="center">
   <a href=""> 🏠 Homepage</a> |
   <a href=""> 📜 Paper</a> | 
   <a href=""> 🤗 Dataset</a> | 
   <a href="#Installation"> 🚀 Installation</a> 
-</p>
+</p> -->
 
 ## Description
 We introduce Reasoning-Table, the first application of reinforcement learning (RL) to table reasoning, achieving state-of-the-art performance. 
