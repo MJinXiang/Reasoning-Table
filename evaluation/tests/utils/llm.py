@@ -59,7 +59,7 @@ def call_api_with_retry(client_info, messages, max_tokens=2048, temperature=0.2,
                     gemini_messages.append(gemini_message)
 
                 headers = {
-                    'Authorization': f'Bearer {os.environ["DASHSCOPE_FANGYU_API_KEY"]}',
+                    'Authorization': f'Bearer {os.environ["OPENAI_API_KEY"]}',
                     'Content-Type': 'application/json'
                 }
                 
@@ -75,7 +75,7 @@ def call_api_with_retry(client_info, messages, max_tokens=2048, temperature=0.2,
 
                 response = requests.request(
                     "POST", 
-                    "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions", 
+                    "url", 
                     headers=headers, 
                     data=payload
                 )
@@ -120,7 +120,7 @@ def call_api_with_retry(client_info, messages, max_tokens=2048, temperature=0.2,
 def initialize_client(model_info):
     """初始化并返回客户端信息"""
     model_path = model_info.get("model_path", "")
-    api_port = model_info.get("api_port", 8000)  # 获取API端口参数
+    api_port = model_info.get("api_port", 8000)  
     
     if (model_path.startswith("gemini") or 
         model_path.startswith("claude") or 

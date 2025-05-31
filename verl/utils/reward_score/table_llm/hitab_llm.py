@@ -44,8 +44,8 @@ if not llm_judge_logger.handlers:
 
 # Global LLM client, initialize only once
 GLOBAL_LLM_CLIENT = initialize_client({
-    "model_type": "claude",
-    "model_path": "claude-3-7-sonnet-2025021"
+    "model_type": "model type",
+    "model_path": "model name or path here",  # Replace with actual model name or path
 })
 
 # Global thread pool for parallel processing

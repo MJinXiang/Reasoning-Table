@@ -92,7 +92,7 @@ class APIGenerator(BaseGenerator):
 
         # Add tokenizer for token count calculation
         try:
-            self.tokenizer = AutoTokenizer.from_pretrained("/netcache/huggingface/Qwen2.5-3B-Instruct")
+            self.tokenizer = AutoTokenizer.from_pretrained("model path")
         except Exception as e:
             print(f"Warning: Failed to load tokenizer: {e}")
             self.tokenizer = None

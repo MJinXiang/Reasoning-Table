@@ -1,7 +1,6 @@
-export DASHSCOPE_FANGYU_API_KEY=
 # ===================== Parameter Configuration ============================
-MODEL_PATH="/huggingface/Qwen2.5-3B-Instruct"   # Inference model path
-EVAL_MODEL_PATH="claude-3-7-sonnet-20250219" #"/huggingface/Qwen2.5-7B-Instruct"  # Evaluation model path (for LLM evaluation)
+MODEL_PATH="model path"   # Inference model path
+EVAL_MODEL_PATH="model path or name"  # Evaluation model path (for LLM evaluation)
 TASK_NAME="totto"  # Task name, e.g., tatqa, wikitq
 TRAIN_TYPE="base"  # Training type, e.g., grpo, ppo, sft
 MODEL_SIZE="3b"    # Model size, e.g., 3b, 7b

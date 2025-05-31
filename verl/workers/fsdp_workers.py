@@ -350,7 +350,6 @@ class ActorRolloutRefWorker(Worker):
             # However, due to veRL's setting, the main process of ray can not find any CUDA device, which would potentially lead to:
             # "RuntimeError: No CUDA GPUs are available".
             # For this reason, sharding_manager.__init__ should not import FSDPSGLangShardingManager and we import it here use the abs path.
-            # check: https://github.com/sgl-project/sglang/blob/00f42707eaddfc2c0528e5b1e0094025c640b7a0/python/sglang/srt/layers/quantization/fp8_utils.py#L76
             from verl.workers.sharding_manager.fsdp_sglang import FSDPSGLangShardingManager
             log_gpu_memory_usage(f'Before building {rollout_name} rollout', logger=None)
             rollout = SGLangRollout(actor_module=self.config.model.path,

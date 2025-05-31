@@ -391,8 +391,8 @@ def process_tatqa_data_batch(input_file, gold_file, output_file, model_path, log
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Process TaTQA dataset with VLLM batch inference')
     
-    parser.add_argument('--output_file', type=str,  default='./results/tatqa_results.json', help='Path to save results') #required=True,
-    parser.add_argument('--model_path', type=str, default='/mnt/usercache/huggingface/Qwen2.5-3B-Instruct', help='Model path or identifier') #required=True,
+    parser.add_argument('--output_file', type=str,  default=None, help='Path to save results') #required=True,
+    parser.add_argument('--model_path', type=str, help='Model path or identifier') #required=True,
     parser.add_argument('--data_path', type=str,  help='Path to input data file')
     parser.add_argument('--gold_file', type=str, help='Path to gold answer file')
     parser.add_argument('--log_file', type=str,  default='./logs/tatqa_inference.log', help='Path to log file') #required=True,
@@ -400,7 +400,7 @@ def parse_arguments():
     parser.add_argument('--max_tokens', type=int, default=4096, help='Maximum tokens for model output')
     parser.add_argument('--tensor_parallel_size', type=int, default=2, help='Tensor parallelism size')
     parser.add_argument('--batch_size', type=int, default=64, help='Batch size for inference')
-    parser.add_argument('--base_path', type=str,default='/mnt/usercache/mengjinxiang/Project/SFT_and_Evaluation', help='Base path for the project')
+    parser.add_argument('--base_path', type=str, help='Base path for the project')
     parser.add_argument('--think', action='store_true', help='increase output verbosity')
     
     return parser.parse_args()

@@ -366,7 +366,7 @@ def main():
     parser.add_argument('--output_file', type=str, required=True,
                        help='Path to save evaluation results')
     parser.add_argument('--base_path', type=str,
-                       help='Base path for the project (default: /netcache/mengjinxiang/Project/LLaMA-Factory-main)')
+                       help='Base path for the project')
    
     
     args = parser.parse_args()

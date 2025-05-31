@@ -67,20 +67,20 @@ class MegatronPPOActor(BasePPOActor):
 
                 ``shuffle``: whether to shuffle the data after each ppo epoch.
 
-                ``clip_ratio``: clip ratio of the ppo algorithm. See https://arxiv.org/abs/1707.06347.
+                ``clip_ratio``: clip ratio of the ppo algorithm. 
 
-                ``entropy_coeff``: entropy coefficient of the PPO loss. See https://arxiv.org/abs/1707.06347.
+                ``entropy_coeff``: entropy coefficient of the PPO loss. 
             model_config (OmegaConf): model configuration. It must contains ``model_config.vocab_size`` and
                 ``model_config.hidden_size``
             hf_config (PretrainedConfig): huggingface config
             tf_config (TransformerConfig): mcore transformer config
             actor_module (nn.ModuleList): actor module is a ModuleList that contains a list of nn.Module in this pp stage.
-                each nn.Module in this rank holds a vpp module chunk. See https://arxiv.org/pdf/2104.04473.pdf for more details.
+                each nn.Module in this rank holds a vpp module chunk. 
                 The actor module has some constraints to follow in order to use the updating logics implemented here
 
                 1. It must implement unpad_input before any computation and pad_input after all the computation. Remove padding is an
                 optimization that removes the padding tokens. See unpad_input and pad_input function in flash-attn
-                (https://github.com/Dao-AILab/flash-attention/blob/main/flash_attn/bert_padding.py).
+               
 
                 2. Each pp stage must return the hidden state with the same shape [total_nnz, 1, hidden_size],
                 where total_nnz is the number of valid tokens in this batch. If sequence parallel is enabled, the size

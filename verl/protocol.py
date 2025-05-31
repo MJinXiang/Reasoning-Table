@@ -174,7 +174,7 @@ class DataProtoItem:
 class DataProto:
     """
     A DataProto is a data structure that aims to provide a standard protocol for data exchange between functions.
-    It contains a batch (TensorDict) and a meta_info (Dict). The batch is a TensorDict https://pytorch.org/tensordict/.
+    It contains a batch (TensorDict) and a meta_info (Dict). 
     TensorDict allows you to manipulate a dictionary of Tensors like a single Tensor. Ideally, the tensors with the
     same batch size should be put inside batch.
     """
@@ -560,8 +560,7 @@ class DataProto:
 
     def make_iterator(self, mini_batch_size, epochs, seed=None, dataloader_kwargs=None):
         r"""Make an iterator from the DataProto. This is built upon that TensorDict can be used as a normal Pytorch
-        dataset. See https://pytorch.org/tensordict/tutorials/data_fashion for more details.
-
+        dataset.
 
         Args:
             mini_batch_size (int): mini-batch size when iterating the dataset. We require that ``batch.batch_size[0] % mini_batch_size == 0``.

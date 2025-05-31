@@ -1,5 +1,4 @@
 # Reasoning-Table: Exploring Reinforcement Learning for Table Reasoning
-<!-- [**🤗 Model**]() | [**🤗 Dataset**]() | [**📖 Paper**]() -->
 
 <p align="center">
   <a href=""> 🏠 Homepage</a> |
@@ -18,11 +17,7 @@ Further experiments demonstrate that Reasoning-Table enhances the model's genera
 
 
 ## 🔥 News
-<!-- - 2024-09-26: 🚀🚀 Our paper has been accepted at NeurIPS D&B Track 2024.
 
-- 2024-06-18: We released our [paper](https://arxiv.org/abs/2406.10890) titled "RWKU: Benchmarking Real-World Knowledge Unlearning for Large Language Models".
-
-- 2024-06-05: We released our [dataset](https://huggingface.co/datasets/jinzhuoran/RWKU) on the Huggingface. -->
 
 ## 🔍 Installation
 Please install torch, vllm and ray according to your own environment configuration. We provide a configuration example adapted from TinyZero in the following:
@@ -50,11 +45,7 @@ pip install wandb IPython matplotlib
 ```
 
 ## 📊 Dataset
-<!-- We provide the raw dataset in `./dataset/rlla_4k_raw`, which consists of 2K ToolACE data, 1K Hammer (Masked) data, and 1K xLAM data.
 
-The SFT data includes thought content distilled from Deepseek-R1, whereas the RL data contains only placeholders in the thought field.
-
-For training purposes, the raw data must be further processed. The processed RL training data is available at `./dataset/rlla_4k`. -->
 
 
 ## 🧪 Training
@@ -111,11 +102,3 @@ Our code is built upon [veRL](https://github.com/volcengine/verl) and [TinyZero]
 
 ## 🖊️ Citation
 
-<!-- ```text
-@article{qian2025toolrl,
-  title={ToolRL: Reward is All Tool Learning Needs},
-  author={Qian, Cheng and Acikgoz, Emre Can and He, Qi and Wang, Hongru and Chen, Xiusi and Hakkani-T{\"u}r, Dilek and Tur, Gokhan and Ji, Heng},
-  journal={arXiv preprint arXiv:2504.13958},
-  year={2025}
-}
-``` -->

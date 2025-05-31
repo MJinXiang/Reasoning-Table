@@ -62,7 +62,7 @@ def call_api_with_retry(client_info, messages, max_tokens=2048, temperature=0.2,
                     gemini_messages.append(gemini_message)
 
                 headers = {
-                    'Authorization': f'Bearer {os.environ["DASHSCOPE_FANGYU_API_KEY"]}',
+                    'Authorization': f'Bearer {os.environ["OPENAI_API_KEY"]}',
                     'Content-Type': 'application/json'
                 }
                 
@@ -79,7 +79,7 @@ def call_api_with_retry(client_info, messages, max_tokens=2048, temperature=0.2,
 
                 response = requests.request(
                     "POST", 
-                    "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions", 
+                    "url",  # Replace with actual API URL
                     headers=headers, 
                     data=payload
                 )
@@ -158,7 +158,7 @@ def initialize_client(model_info):
     else:
         # Default to local OpenAI interface, initialize client
         try:
-            client = OpenAI(api_key="0", base_url="http://0.0.0.0:8000/v1")  # Modify for different tasks
+            client = OpenAI(api_key="0", base_url="url")  # Modify for different tasks
             return {
                 "model_type": "openai",
                 "model_path": model_path,

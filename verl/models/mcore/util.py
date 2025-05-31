@@ -25,9 +25,6 @@ def preprocess_packed_seqs(input_ids: torch.Tensor,
                            attention_mask: torch.Tensor,
                            pre_process: bool = True) -> tuple[torch.Tensor, PackedSeqParams]:
     """
-    Preprocess packed sequences
-    CP splits sequence into CP*2 chunks, and each GPU gets 2 chunks (GPU0 gets first and last chunks, GPU1 gets second and second last chunks, and so on), this is for load balancing with causal masking.
-    See https://github.com/NVIDIA/TransformerEngine/issues/1368
     """
     batch_size = input_ids.shape[0]
 

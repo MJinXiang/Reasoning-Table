@@ -620,7 +620,7 @@ class RewardModelWorker(MegatronWorker):
         # Therefore, we only require one distribute initialization.
         # To utilize different parallel startegy in different models:
         # 1, users should disable WorkerDict; 2.assign different ResourcePool to different models,
-        # 3. and apply the following patch in ray==2.10, https://github.com/ray-project/ray/pull/44385
+        # 3. and apply the following patch in ray==2.10,
         if not torch.distributed.is_initialized():
             rank = int(os.environ['LOCAL_RANK'])
             torch.distributed.init_process_group(backend="nccl")

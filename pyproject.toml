@@ -51,7 +51,6 @@ test = [
 
 # URLs
 [project.urls]
-Homepage = "https://github.com/volcengine/verl"
 
 # -------------------------------
 # tool.setuptools - Additional config

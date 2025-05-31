@@ -26,10 +26,6 @@ import verl.utils.torch_functional as verl_F
 
 
 class AdaptiveKLController:
-    """
-    Adaptive KL controller described in the paper:
-    https://arxiv.org/pdf/1909.08593.pdf
-    """
 
     def __init__(self, init_kl_coef, target_kl, horizon):
         self.value = init_kl_coef
@@ -65,7 +61,7 @@ def get_kl_controller(kl_ctrl):
 
 def compute_gae_advantage_return(token_level_rewards: torch.Tensor, values: torch.Tensor, response_mask: torch.Tensor,
                                  gamma: torch.Tensor, lam: torch.Tensor):
-    """Adapted from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py
+    """
 
     Args:
         token_level_rewards: `(torch.Tensor)`
@@ -77,8 +73,7 @@ def compute_gae_advantage_return(token_level_rewards: torch.Tensor, values: torc
         gamma: `(float)`
             discounted factor used in RL
         lam: `(float)`
-            lambda value when computing Generalized Advantage Estimation (https://arxiv.org/abs/1506.02438)
-
+           
     Returns:
         advantages: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -109,8 +104,6 @@ def compute_grpo_outcome_advantage(token_level_rewards: torch.Tensor,
                                    index: np.ndarray,
                                    epsilon: float = 1e-6):
     """
-    Compute advantage for GRPO, operating only on Outcome reward 
-    (with only one scalar reward for each response).
     Args:
         token_level_rewards: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -154,8 +147,7 @@ def compute_reinforce_plus_plus_baseline_outcome_advantage(token_level_rewards: 
                                                            index: torch.Tensor,
                                                            epsilon: float = 1e-6):
     """
-    Compute advantage for RF++-baseline (https://arxiv.org/abs/2501.03262), operating only on Outcome reward 
-    (with only one scalar reward for each response).
+   
     Args:
         token_level_rewards: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -199,7 +191,7 @@ def compute_rloo_outcome_advantage(token_level_rewards: torch.Tensor,
                                    index: np.ndarray,
                                    epsilon: float = 1e-6):
     """
-    Compute advantage for RLOO based on https://arxiv.org/abs/2402.14740
+  
     Args:
         token_level_rewards: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -241,8 +233,7 @@ def compute_rloo_outcome_advantage(token_level_rewards: torch.Tensor,
 def compute_reinforce_plus_plus_outcome_advantage(token_level_rewards: torch.Tensor, response_mask: torch.Tensor,
                                                   gamma: torch.Tensor):
     """
-    Compute advantage for REINFORCE++. 
-    This implementation is based on the paper: https://arxiv.org/abs/2501.03262
+
     Args:
         token_level_rewards: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -275,8 +266,6 @@ def compute_reinforce_plus_plus_outcome_advantage(token_level_rewards: torch.Ten
 def compute_remax_outcome_advantage(token_level_rewards: torch.Tensor, reward_baselines: torch.Tensor,
                                     response_mask: torch.Tensor):
     """
-    Compute advantage for ReMax, operating only on Outcome reward 
-    This implementation is based on the paper: https://arxiv.org/abs/2310.10505
 
     (with only one scalar reward for each response).
     Args:
@@ -343,7 +332,7 @@ def compute_policy_loss(old_log_prob,
                         cliprange_high=None,
                         clip_ratio_c=3.0,
                         loss_agg_mode="token-mean"):
-    """Adapted from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py#L1122
+    """
     Args:
         old_log_prob: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -354,13 +343,13 @@ def compute_policy_loss(old_log_prob,
         response_mask: `(torch.Tensor)`
             shape: (bs, response_length)
         cliprange: (float)
-            The clip range used in PPO. See https://arxiv.org/abs/1707.06347
+        
         cliprange_low: (float)
             The lower clip range used in PPO.
         cliprange_high: (float)
             The higher clip range used in PPO.
         clip_ratio_c: (float) default: 3.0
-            The lower bound of the ratio for dual-clip PPO, See https://arxiv.org/pdf/1912.09729
+           
         loss_agg_mode: (str) choices: "token-mean" / "seq-mean-token-sum" / "seq-mean-token-mean"
             "token-mean" is the default behavior        
 
@@ -422,7 +411,7 @@ def compute_entropy_loss(logits, response_mask):
 
 
 def compute_value_loss(vpreds, returns, values, response_mask, cliprange_value):
-    """Compute the value loss. Copied from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py#L1151
+    """Compute the value loss.
 
     Args:
         vpreds (`torch.FloatTensor`):
@@ -449,8 +438,7 @@ def compute_value_loss(vpreds, returns, values, response_mask, cliprange_value):
 
 def kl_penalty(logprob: torch.FloatTensor, ref_logprob: torch.FloatTensor, kl_penalty) -> torch.FloatTensor:
     """Compute KL divergence given logprob and ref_logprob.
-    Copied from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py#L1104
-
+   
     Args:
         logprob:
         ref_logprob:
@@ -467,8 +455,7 @@ def kl_penalty(logprob: torch.FloatTensor, ref_logprob: torch.FloatTensor, kl_pe
     if kl_penalty == "mse":
         return 0.5 * (logprob - ref_logprob).square()
 
-    # J. Schulman. Approximating kl divergence, 2020.
-    # # URL http://joschu.net/blog/kl-approx.html.
+   
     if kl_penalty == 'low_var_kl':
         kl = ref_logprob - logprob
         ratio = torch.exp(kl)

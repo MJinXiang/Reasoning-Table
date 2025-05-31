@@ -1,19 +1,5 @@
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:False
 
-export GPUS_PER_NODE=${MLP_WORKER_GPU:-${KUBERNETES_CONTAINER_RESOURCE_GPU:-8}}
-export NNODES=${MLP_WORKER_NUM:-${WORLD_SIZE:-1}}
-export NODE_RANK=${MLP_WORKER_RACK_RANK_INDEX:-${MLP_ROLE_INDEX:-${RANK:-0}}}
-export MASTER_ADDR=${MLP_WORKER_0_HOST:-${MASTER_ADDR:-127.0.0.1}}
-export MASTER_PORT=${MLP_WORKER_0_PORT:-${MASTER_PORT:-1234}}
-export HYDRA_FULL_ERROR=1
-
-echo "GPUS_PER_NODE: $GPUS_PER_NODE"
-echo "NNODES: $NNODES nodes"
-
-
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:False
-
-export BASE_MODEL="huggingface/Qwen2.5-7B-Instruct"
+export BASE_MODEL="model path"
 export DATA_DIR="data/wikitq"
 export ROLLOUT_TP_SIZE=1
 export WANDB_API_KEY=
@@ -66,6 +52,6 @@ python -m verl.trainer.main_ppo \
     trainer.nnodes=$NNODES \
     trainer.save_freq=20 \
     trainer.test_freq=5 \
-    trainer.project_name=Table-R1 \
+    trainer.project_name=Reasoning-Table \
     trainer.experiment_name=$EXPERIMENT_NAME \
     trainer.total_epochs=3  2>&1 | tee ${EXPERIMENT_NAME}.log

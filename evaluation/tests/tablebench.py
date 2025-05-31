@@ -102,7 +102,7 @@ class APIGenerator(BaseGenerator):
         self.call_api = call_api_with_retry
 
         try:
-            self.tokenizer = AutoTokenizer.from_pretrained("/netcache/huggingface/Qwen2.5-3B-Instruct")
+            self.tokenizer = AutoTokenizer.from_pretrained("model path")
         except Exception as e:
             print(f"Warning: Failed to load tokenizer: {e}")
             self.tokenizer = None

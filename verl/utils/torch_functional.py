@@ -47,7 +47,7 @@ def gather_from_labels(data, label):
 
 def logprobs_from_logits(logits, labels, inplace_backward=True):
     """
-    See: https://github.com/pytorch/pytorch/issues/563#issuecomment-330103591
+   
     """
     if FLAH_ATTN_CROSS_ENTROPY_LOSS_AVAILABLE:
         batch_dim = logits.shape[:-1]
@@ -97,7 +97,7 @@ def logprobs_from_logits_v2(logits: torch.FloatTensor, labels):
 def clip_by_value(x, tensor_min, tensor_max):
     """
     Tensor extenstion to torch.clamp
-    https://github.com/pytorch/pytorch/issues/2793#issuecomment-428784713
+   
     """
     clipped = torch.max(torch.min(x, tensor_max), tensor_min)
     return clipped
