@@ -3,11 +3,16 @@
 <p align="center">
   <a href=""> 🏠 Homepage</a> |
   <a href=""> 📜 Paper</a> | 
-  <a href=""> 🤗 Dataset</a> | 
+  <a href="https://huggingface.co/datasets/TableQAKit/Reasoning-Table"> 🤗 Dataset</a> | 
   <a href="## 🔍 Installation"> 🚀 Installation</a> 
 </p>
 
 ## 🔥 News
+
+
+- **[2025.06.03]** 📑 Our paper is now available on [arXiv]().
+- **[2025.06.02]** 🎉 We have released our [Reasoning-Table](https://huggingface.co/datasets/TableQAKit/Reasoning-Table) Dataset on Hugging Face!
+- **[2025.06.02]** 🎉 We have released the code of Reasoning-Table.
 
 
 ## 👋 Overview

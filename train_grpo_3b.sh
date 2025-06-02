@@ -12,7 +12,7 @@ export VLLM_ATTENTION_BACKEND=XFORMERS
 
 export EXPERIMENT_NAME=train_grpo_wikitq-3b
 
-python -m verl.trainer.main_ppo \
+python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
     data.train_files=$DATA_DIR/train.parquet \
     data.val_files=$DATA_DIR/test.parquet \
