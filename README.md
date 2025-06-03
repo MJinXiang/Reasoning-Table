@@ -10,7 +10,7 @@
 ## 🔥 News
 
 
-- **[2025.06.03]** 📑 Our paper is now available on [arXiv]().
+- **[2025.06.03]** 📑 Our paper is now available on [arXiv](https://arxiv.org/abs/2506.01710).
 - **[2025.06.02]** 🎉 We have released our [Reasoning-Table](https://huggingface.co/datasets/TableQAKit/Reasoning-Table) Dataset on Hugging Face!
 - **[2025.06.02]** 🎉 We have released the code of Reasoning-Table.
 
