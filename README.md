@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href=""> 🏠 Homepage</a> |
-  <a href=""> 📜 Paper</a> | 
+  <a href="https://arxiv.org/abs/2506.01710"> 📜 Paper</a> | 
   <a href="https://huggingface.co/datasets/TableQAKit/Reasoning-Table"> 🤗 Dataset</a> | 
   <a href="## 🔍 Installation"> 🚀 Installation</a> 
 </p>
@@ -135,3 +135,14 @@ Our code is built upon [veRL](https://github.com/volcengine/verl) and [TinyZero]
 
 ## 🖊️ Citation
 
+```
+@misc{lei2025reasoningtableexploringreinforcementlearning,
+      title={Reasoning-Table: Exploring Reinforcement Learning for Table Reasoning}, 
+      author={Fangyu Lei and Jinxiang Meng and Yiming Huang and Tinghong Chen and Yun Zhang and Shizhu He and Jun Zhao and Kang Liu},
+      year={2025},
+      eprint={2506.01710},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2506.01710}, 
+}
+```
